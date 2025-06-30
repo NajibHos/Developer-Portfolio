@@ -4,10 +4,12 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
 
+  // getting current theme from local storage or light theme by default
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
 
+  // applying current theme only mount and theme change
   useEffect(() => {
     const root = document.documentElement;
     if (theme === "dark") {
@@ -18,8 +20,9 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  // toggling between dark and light theme
   const toggleTheme = () => {
-    setTheme(prev => (prev === "light" ? "dark" : "light"));
+    setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
