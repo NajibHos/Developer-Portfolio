@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+
+/* toggling theme manually */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* adding custom font faces */
+@font-face {
+  font-family: "Sporting Grotesque";
+  src: url("./assets/fonts/SportingGrotesque-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sporting Grotesque";
+  src: url("./assets/fonts/SportingGrotesque-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* custom tailwind styles */
+@theme {
+  --font-grotesque: "Sporting Grotesque", sans-serif;
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+
+/* removing scrollbar */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
